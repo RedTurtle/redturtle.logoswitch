@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object name="portal_skins" meta_type="Plone Skins Tool" allow_any="False" cookie_persistence="False">
+
+
+ <object name="logoswitch_stylesheets"
+    meta_type="Filesystem Directory View"
+    directory="redturtle.logoswitch:skins/logoswitch_stylesheets"/>
+
+ <skin-path name="*">
+     <layer name="logoswitch_stylesheets" insert-after="custom"/>      
+ </skin-path>
+
+</object>

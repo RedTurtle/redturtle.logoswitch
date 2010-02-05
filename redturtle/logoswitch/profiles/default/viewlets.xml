@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<object>
+
+  <order manager="plone.portalheader" skinname="*">
+    <viewlet name="plone.skip_links" />
+    <viewlet name="plone.site_actions" />
+	<viewlet name="plone.searchbox" />
+    <viewlet name="plone.logo.custom" />
+	<viewlet name="plone.global_sections" />
+  </order>
+ 
+  <hidden manager="plone.portalheader">
+  	<viewlet name="plone.logo" />
+  </hidden> 
+ 
+ 
+</object>

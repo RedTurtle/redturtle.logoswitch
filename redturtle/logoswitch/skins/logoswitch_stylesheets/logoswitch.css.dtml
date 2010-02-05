@@ -1,0 +1,19 @@
+/*
+<dtml-with base_properties> (do not remove this)
+<dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either)
+*/
+
+.image_for_logo{
+	margin-left:1em;
+}
+
+.list_images{
+	border-bottom: 1px dashed &dtml-globalBorderColor;;
+	padding: 0.3em 0;
+}
+
+.selection_buttons{
+	margin-top:1em;
+}
+
+/* </dtml-with> */

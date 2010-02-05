@@ -1,0 +1,116 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<div metal:fill-slot="main">
+    <tal:main-macro metal:define-macro="main" 
+         tal:define="toLocalizedTime nocall:plone_view/toLocalizedTime;
+                     templateId string:select_logo">
+
+
+		<tal:if condition="python:request.form.get('form.button.AddFolder','')">
+			<tal:do_add define="dummy view/createFolder"/>
+		</tal:if>
+
+		<tal:if condition="python:request.form.get('form.submitted','')">
+			<tal:do_add define="dummy view/changeLogoName"/>
+		</tal:if>
+		
+		
+        <h1 class="documentFirstHeading"> 
+            Change Logo
+        </h1>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription">
+            Select an image for the site logo.
+        </p>
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+		<tal:switch define="logos_folder view/hasLogosFolder">
+			<div tal:condition="python:not logos_folder">
+				<dl class="portalMessage error">
+		            <dt i18n:translate="">
+		                Error
+		            </dt>
+		            <dd >
+		                Folder Logos does not exist
+		            </dd>
+		        </dl>
+				<form method="POST" action="">
+			            	
+			        <div class="formControls">
+					  
+					  	<div class="selection_buttons"> 
+						  <input class="context"
+						         type="submit"
+				                 value="Add Folder"
+				                 name="form.button.AddFolder"
+								 i18n:attributes="value;"
+				                 />
+								 
+						</div>
+			        </div>
+		
+		        </form>
+			</div>	
+			<div tal:condition="logos_folder">
+		
+				<tal:image_list define="image_list view/getImageList">
+				<tal:has_images condition="image_list">
+					<form method="POST"
+			            action="">
+			            	
+				        <div class="formControls">
+						  
+						  <input type="hidden" name="form.submitted" value="1" />
+						  
+						  <tal:for repeat="img image_list">
+						  	<div class="list_images">
+						  		<input type="radio"
+									   name="image_selected"
+									   value=""
+									   tal:attributes="value img/absolute_url"/>
+								   
+								<img class="image_for_logo" src="" tal:attributes="src img/absolute_url"/>
+							</div>	   
+						  	</tal:for>
+						  	<div class="selection_buttons"> 
+							  <input class="context"
+							         type="submit"
+					                 value="Switch"
+					                 name="form.button.Submit"
+									 i18n:attributes="value;"
+					                 />
+									 
+					          <input class="standalone"
+					                 type="submit"
+					                 value="Cancella"
+					                 name="form.button.Cancel"
+					                 i18n:attributes="value label_cancel;"
+					                 />
+							</div>
+				        </div>
+			
+			        </form>
+				</tal:has_images>	
+				</tal:image_list>
+
+			</div>
+		
+		</tal:switch>
+	
+        <span class="visualClear"><!-- --></span>
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+		
+    </tal:main-macro>
+</div>
+
+</body>
+</html>

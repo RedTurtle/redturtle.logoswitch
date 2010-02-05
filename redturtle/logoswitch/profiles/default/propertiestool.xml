@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<object name="portal_properties" meta_type="Plone Properties Tool" purge="False">
- <object name="site_properties" meta_type="Plone Property Sheet" purge="False">
-  <property name="logo_name" type="string">logo.jpg</property>
- </object>
-</object>

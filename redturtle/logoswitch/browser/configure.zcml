@@ -3,8 +3,12 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="redturtle.logoswitch">
 
-  <include package="plone.app.contentmenu" />
-
-  <!-- -*- extra stuff goes here -*- -->
+  <browser:page
+        name="select_logo"
+        for="*"
+        template="select_logo.pt"
+		class=".select_logo.SelectLogoView"
+        permission="zope2.View"
+   />
 
 </configure>
