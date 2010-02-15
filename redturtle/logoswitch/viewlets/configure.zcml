@@ -3,12 +3,4 @@
            xmlns:five="http://namespaces.zope.org/five"
 		   i18n_domain="plone">
            
-
-  <!-- The logo custom -->
-  <browser:viewlet
-        name="plone.logo.custom"
-        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-        class=".common.CustomLogoViewlet"
-        permission="zope2.View" 
-        />
 </configure>
