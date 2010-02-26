@@ -1,6 +1,6 @@
 from Products.Five import BrowserView
-
 from Products.CMFCore.utils import getToolByName
+from redturtle.logoswitch import logoswitchMessageFactory as _
 
 class SelectLogoView(BrowserView):
     """Vista per conoscere la dimensione totale di un oggetto folderish"""
@@ -18,22 +18,21 @@ class SelectLogoView(BrowserView):
             self.context.plone_log("Added custom_logos folder in portal_skins")
         except Exception,e:
             self.context.plone_log("There was a problem while creating costom_logos folder: %s"%e)
-        self.doReturn('Folder Logos created','info')
+        return self.doReturn(_(u'Folder logos created'),'info')
        
     def changeLogoName(self):
         """If we have selected a new logo, it will be changed the logo name in site_properties"""
-        
         if self.request.form.get('form.button.Cancel',''):
-            self.doReturn('Action deleted','info')
+            return self.doReturn(_(u'Action deleted'),'info')
         
         if not self.request.form.get('form.button.Submit',''):
-            self.doReturn('Wrong action','error')
+            return self.doReturn(_(u'Wrong action'),'error')
         new_logo=self.request.form.get('image_selected')
         portal_properties = getToolByName(self.context, 'portal_properties')
         site_properties = getattr(portal_properties, 'site_properties')
         if site_properties.hasProperty('logo_name'):
             site_properties.manage_changeProperties(logo_name=new_logo)
-            self.doReturn('Logo updated','info')
+            return self.doReturn(_(u'Logo updated'),'info')
             
     def getImageList(self):
         """return a list of images"""
@@ -43,5 +42,6 @@ class SelectLogoView(BrowserView):
 
     def doReturn(self,message,type):
         pu = getToolByName(self.context, "plone_utils")
+        root= '/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
         pu.addPortalMessage(message, type=type)
-        self.request.RESPONSE.redirect(self.request.HTTP_REFERER)
+        self.request.RESPONSE.redirect('%s/select_logo'%root)

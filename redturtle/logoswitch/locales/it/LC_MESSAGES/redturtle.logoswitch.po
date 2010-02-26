@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+
+"Project-Id-Version: redturtle.logoswitch\n"
+"POT-Creation-Date: 2009-10-15 09:47+0000\n"
+"PO-Revision-Date: 2009-10-15 09:47+0000\n"
+"Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
+"Language-Team: <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: it\n"
+"Language-Name: Italian\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: redturtle.logoswitch\n"
+
+
+#. Default: "Change logo"
+msgid "change_logo"
+msgstr "Cambia logo"
+
+#. Default: "Select an image for the site logo."
+msgid "change_descr"
+msgstr "Seleziona un immagine per il logo del sito"
+
+#. Default: "No images in the folder."
+msgid "no_img_descr"
+msgstr "nessuna immagine nella cartella"
+
+#. Default: "Error"
+msgid "msg_error"
+msgstr "Errore"
+
+#. Default: "Folder with logos do not exist yet"
+msgid "no_folder_err"
+msgstr "La cartella con i loghi non esiste ancora"
+
+#. Default: "Add folder"
+msgid "add_folder_button"
+msgstr "Aggiungi cartella"
+
+#. Default: "Switch"
+msgid "label_switch"
+msgstr "Cambia"
+
+#. Default: "Cancel"
+msgid "label_cancel"
+msgstr "Annulla"
+
+#. Default: "Folder logos created"
+msgid "Folder logos created"
+msgstr "Cartella dei loghi creata."
+
+#. Default: "Action deleted"
+msgid "Action deleted"
+msgstr "Azione annullata"
+
+#. Default: "Wrong action"
+msgid "Wrong action"
+msgstr "Azione sbagliata"
+
+#. Default: "Logo updated"
+msgid "Logo updated"
+msgstr "Logo aggiornato"

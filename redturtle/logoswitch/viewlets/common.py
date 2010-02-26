@@ -7,14 +7,25 @@ class CustomLogoViewlet(BaseLogoViewlet):
 
     def update(self):
         super(CustomLogoViewlet, self).update()
-        portal = self.portal_state.portal()
         portal_properties = getToolByName(self.context, 'portal_properties')
         site_properties = getattr(portal_properties, 'site_properties')
-        if site_properties.hasProperty('logo_name') and site_properties.getProperty('logo_name',None):
-            logo_url=site_properties.getProperty('logo_name')
-            self.logo_tag='<img src="%s" alt="" title="Plone" />'%logo_url
+        ps=getToolByName(self.context,'portal_skins')
+        if 'custom_logos' in ps.objectIds():
+            if site_properties.hasProperty('logo_name') and site_properties.getProperty('logo_name',None):
+                logo_url=site_properties.getProperty('logo_name')
+                folder_items=self.context.unrestrictedTraverse('/'.join(ps.getPhysicalPath())+'/custom_logos')
+                logo=[item.absolute_url() for item in folder_items.values() if item.absolute_url()==logo_url]
+                if logo:
+                    self.logo_tag='<img src="%s" alt="" title="Plone" />'%logo_url
+                else:
+                    self.useDefaultLogo()
+            else:
+                self.useDefaultLogo()
         else:
-            logoName = portal.restrictedTraverse('base_properties').logoName
-            self.logo_tag = portal.restrictedTraverse(logoName).tag()
-
+                self.useDefaultLogo()
         self.portal_title = self.portal_state.portal_title()
+        
+    def useDefaultLogo(self):
+        portal=self.portal_state.portal()
+        logoName = portal.restrictedTraverse('base_properties').logoName
+        self.logo_tag = portal.restrictedTraverse(logoName).tag()
