@@ -8,7 +8,7 @@
         for="*"
         template="select_logo.pt"
 		class=".select_logo.SelectLogoView"
-        permission="zope2.View"
+        permission="redturtle.logoswitch.perm"
    />
 
 </configure>
