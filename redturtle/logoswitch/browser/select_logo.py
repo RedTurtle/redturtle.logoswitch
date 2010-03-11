@@ -42,6 +42,6 @@ class SelectLogoView(BrowserView):
 
     def doReturn(self,message,type):
         pu = getToolByName(self.context, "plone_utils")
-        root= '/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
+        root= self.context.portal_url()
         pu.addPortalMessage(message, type=type)
         self.request.RESPONSE.redirect('%s/select_logo'%root)
