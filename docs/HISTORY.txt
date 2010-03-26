@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0.2 (2010-03-26)
+------------------
+
+* modificato title nel tag dell'immagine (#270) [andrea]
+
 1.0.1 (2010-03-04)
 ------------------
 

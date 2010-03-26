@@ -16,7 +16,7 @@ class CustomLogoViewlet(BaseLogoViewlet):
                 folder_items=self.context.unrestrictedTraverse('/'.join(ps.getPhysicalPath())+'/custom_logos')
                 logo=[item.absolute_url() for item in folder_items.values() if item.absolute_url()==logo_url]
                 if logo:
-                    self.logo_tag='<img src="%s" alt="" title="Plone" />'%logo_url
+                    self.logo_tag='<img src="%s" alt="" title="%s" />'%(logo_url,portal_properties.Title())
                 else:
                     self.useDefaultLogo()
             else:
