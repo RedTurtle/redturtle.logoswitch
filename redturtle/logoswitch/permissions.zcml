@@ -3,7 +3,6 @@
     xmlns:five="http://namespaces.zope.org/five"
     i18n_domain="redturtle.logoswitch">
 
-
   <permission
       id="redturtle.logoswitch.perm"
       title="redturtle.logoswitch: Change logo"

@@ -1,2 +1,0 @@
-# viewlet package
-

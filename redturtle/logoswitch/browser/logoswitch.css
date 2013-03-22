@@ -1,0 +1,12 @@
+.image_for_logo{
+    margin-left:1em;
+}
+
+.list_images{
+    border-bottom: 1px dashed &dtml-globalBorderColor;;
+    padding: 0.3em 0;
+}
+
+.selection_buttons{
+    margin-top:1em;
+}

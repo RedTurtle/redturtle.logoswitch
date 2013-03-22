@@ -11,17 +11,7 @@
     <tal:main-macro metal:define-macro="main" 
          tal:define="toLocalizedTime nocall:plone_view/toLocalizedTime;
                      templateId string:select_logo">
-
-
-		<tal:if condition="python:request.form.get('form.button.AddFolder','')">
-			<tal:do_add define="dummy view/createFolder"/>
-		</tal:if>
-
-		<tal:if condition="python:request.form.get('form.submitted','')">
-			<tal:do_add define="dummy view/changeLogoName"/>
-		</tal:if>
-		
-		
+	
         <h1 class="documentFirstHeading" i18n:translate="change_logo"> 
             Change Logo
         </h1>
@@ -35,7 +25,7 @@
 		                Folder Logos does not exist
 		            </dd>
 		        </dl>
-				<form method="POST" action="">
+				<form method="POST" action="select-logo">
 			            	
 			        <div class="formControls">
 					  
@@ -52,14 +42,15 @@
 		
 		        </form>
 			</div>	
-			<div tal:condition="logos_folder">
-				<tal:image_list define="image_list view/getImageList">
+			<div tal:condition="python:logos_folder"
+				 tal:define="image_list view/getImageList">
 				<tal:has_images condition="image_list">
 					<p class="documentDescription" i18n:translate="change_descr">
             			Select an image for the site logo.
         			</p>
 					<form method="POST"
-			            action="">
+			            action="select-logo"
+			            name="select-logo">
 			            	
 				        <div class="formControls">
 						  
@@ -70,7 +61,7 @@
 						  		<input type="radio"
 									   name="image_selected"
 									   value=""
-									   tal:attributes="value img/absolute_url"/>
+									   tal:attributes="value img/getId"/>
 								   
 								<img class="image_for_logo" src="" tal:attributes="src img/absolute_url"/>
 							</div>	   
@@ -99,8 +90,6 @@
             			No images in the folder.
         			</p>
 				</tal:no_images>
-				</tal:image_list>
-
 			</div>
 		
 		</tal:switch>

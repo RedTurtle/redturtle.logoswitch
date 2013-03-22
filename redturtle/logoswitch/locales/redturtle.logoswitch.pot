@@ -1,76 +1,75 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: redturtle.logoswitch\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2013-03-21 16:43+0000\n"
-"PO-Revision-Date: 2009-10-15 09:47+0000\n"
-"Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
-"Language-Team: <>\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: it\n"
-"Language-Name: Italian\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: redturtle.logoswitch\n"
 
-#. Default: "Action deleted"
 #: ./browser/select_logo.py:15
 msgid "Action deleted"
-msgstr "Azione annullata"
+msgstr ""
 
-#. Default: "Folder logos created"
 #: ./browser/select_logo.py:35
 msgid "Folder logos created"
-msgstr "Cartella dei loghi creata."
+msgstr ""
 
-#. Default: "Logo updated"
 #: ./browser/select_logo.py:48
 msgid "Logo updated"
-msgstr "Logo aggiornato"
+msgstr ""
 
 #: ./browser/select_logo.py:38
 msgid "There was a problem while creating custom-logos folder. See log for more details."
-msgstr "Si è verificato un problema creando la cartella custom-logos. Controlla il log per maggiori dettagli."
+msgstr ""
 
 #. Default: "Add Folder"
 #: ./browser/select_logo.pt:33
-#, fuzzy
 msgid "add_folder_button"
-msgstr "Aggiungi cartella"
+msgstr ""
 
 #. Default: "Select an image for the site logo."
 #: ./browser/select_logo.pt:48
 msgid "change_descr"
-msgstr "Seleziona un immagine per il logo del sito"
+msgstr ""
 
 #. Default: "Change Logo"
 #: ./browser/select_logo.pt:15
 msgid "change_logo"
-msgstr "Cambia logo"
+msgstr ""
 
 #. Default: "Cancel"
 #: ./browser/select_logo.pt:77
 msgid "label_cancel"
-msgstr "Annulla"
+msgstr ""
 
 #. Default: "Switch"
 #: ./browser/select_logo.pt:70
 msgid "label_switch"
-msgstr "Cambia"
+msgstr ""
 
 #. Default: "Error"
 #: ./browser/select_logo.pt:21
 msgid "msg_error"
-msgstr "Errore"
+msgstr ""
 
 #. Default: "Folder Logos does not exist"
 #: ./browser/select_logo.pt:24
 msgid "no_folder_err"
-msgstr "La cartella con i loghi non esiste ancora"
+msgstr ""
 
 #. Default: "No images in the folder."
 #: ./browser/select_logo.pt:89
 msgid "no_img_descr"
-msgstr "Nessuna immagine nella cartella."
+msgstr ""
 

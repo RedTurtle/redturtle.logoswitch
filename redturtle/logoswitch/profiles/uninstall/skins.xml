@@ -2,7 +2,7 @@
 <object name="portal_skins" meta_type="Plone Skins Tool" allow_any="False" cookie_persistence="False">
 
  <skin-path name="*">
-     <layer name="custom-logos" insert-after="custom"/>      
+     <layer name="custom-logos" insert-after="custom" remove="True"/>
  </skin-path>
 
 </object>

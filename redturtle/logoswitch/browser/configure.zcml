@@ -4,11 +4,25 @@
     i18n_domain="redturtle.logoswitch">
 
   <browser:page
-        name="select_logo"
+        name="select-logo"
         for="*"
         template="select_logo.pt"
-		class=".select_logo.SelectLogoView"
+		    class=".select_logo.SelectLogoView"
         permission="redturtle.logoswitch.perm"
+        layer=".interfaces.ILogoSwitchLayer"
    />
+   <!-- The logo -->
+    <browser:viewlet
+        name="plone.logo"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".logo_viewlet.CustomLogoViewlet"
+        permission="zope2.View"
+        layer=".interfaces.ILogoSwitchLayer"
+        />  
+
+    <browser:resource
+      name="logoswitch.css"
+      file="logoswitch.css"
+      />
 
 </configure>

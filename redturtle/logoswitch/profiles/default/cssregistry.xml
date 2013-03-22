@@ -2,7 +2,7 @@
 <object name="portal_css">
 
  <stylesheet title=""
-    id="logoswitch.css"
+    id="++resource++logoswitch.css"
     media="screen" rel="stylesheet" rendering="import"
     cacheable="True" compression="safe" cookable="True"
     enabled="1" expression=""/>

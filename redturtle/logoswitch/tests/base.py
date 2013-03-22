@@ -1,78 +1,35 @@
-"""Test setup for integration and functional tests.
+# -*- coding: utf-8 -*-
+from redturtle.logoswitch.browser.interfaces import ILogoSwitchLayer
+from zope import interface
+import os
+import StringIO
+import unittest
 
-When we import PloneTestCase and then call setupPloneSite(), all of
-Plone's products are loaded, and a Plone site will be created. This
-happens at module level, which makes it faster to run each test, but
-slows down test runner startup.
-"""
 
-from Products.Five import zcml
-from Products.Five import fiveconfigure
+class BaseTestCase(unittest.TestCase):
 
-from Testing import ZopeTestCase as ztc
+    def setUp(self):
+        """
+        """
+        self.portal = self.layer['portal']
+        self.request = self.layer['request']
+        self.markRequestWithLayer()
 
-from Products.PloneTestCase import PloneTestCase as ptc
-from Products.PloneTestCase.layer import onsetup
+    def markRequestWithLayer(self):
+        # to be removed when p.a.testing will fix https://dev.plone.org/ticket/11673
+        request = self.layer['request']
+        interface.alsoProvides(request, ILogoSwitchLayer)
 
-# When ZopeTestCase configures Zope, it will *not* auto-load products
-# in Products/. Instead, we have to use a statement such as:
-#   ztc.installProduct('SimpleAttachment')
-# This does *not* apply to products in eggs and Python packages (i.e.
-# not in the Products.*) namespace. For that, see below.
-# All of Plone's products are already set up by PloneTestCase.
-
-@onsetup
-def setup_product():
-    """Set up the package and its dependencies.
-
-    The @onsetup decorator causes the execution of this body to be
-    deferred until the setup of the Plone site testing layer. We could
-    have created our own layer, but this is the easiest way for Plone
-    integration tests.
-    """
-
-    # Load the ZCML configuration for the example.tests package.
-    # This can of course use <include /> to include other packages.
-
-    fiveconfigure.debug_mode = True
-    import redturtle.logoswitch
-    zcml.load_config('configure.zcml', redturtle.logoswitch)
-    fiveconfigure.debug_mode = False
-
-    # We need to tell the testing framework that these products
-    # should be available. This can't happen until after we have loaded
-    # the ZCML. Thus, we do it here. Note the use of installPackage()
-    # instead of installProduct().
-    # This is *only* necessary for packages outside the Products.*
-    # namespace which are also declared as Zope 2 products, using
-    # <five:registerPackage /> in ZCML.
-
-    # We may also need to load dependencies, e.g.:
-    #   ztc.installPackage('borg.localrole')
-
-    ztc.installPackage('redturtle.logoswitch')
-
-# The order here is important: We first call the (deferred) function
-# which installs the products we need for this product. Then, we let
-# PloneTestCase set up this product on installation.
-
-setup_product()
-ptc.setupPloneSite(products=['redturtle.logoswitch'])
-
-class TestCase(ptc.PloneTestCase):
-    """We use this base class for all the tests in this package. If
-    necessary, we can put common utility or setup code in here. This
-    applies to unit test cases.
-    """
-
-class FunctionalTestCase(ptc.FunctionalTestCase):
-    """We use this class for functional integration tests that use
-    doctest syntax. Again, we can put basic common utility or setup
-    code in here.
-    """
-
-    def afterSetUp(self):
-        roles = ('Member', 'Contributor')
-        self.portal.portal_membership.addMember('contributor',
-                                                'secret',
-                                                roles, [])
+    def get_logos(self):
+        image_path = '/'.join(
+                              os.path.realpath(__file__).split(os.path.sep)[:-2]
+                              )
+        rt_logo = '%s/tests/redturtle_logo.jpg' % image_path
+        ploneit_logo = '%s/tests/ploneit_logo.png' % image_path
+        fd1 = open(rt_logo, 'rb')
+        fd2 = open(ploneit_logo, 'rb')
+        data1 = StringIO.StringIO(fd1.read())
+        data2 = StringIO.StringIO(fd2.read())
+        fd1.close()
+        fd2.close()
+        return data1, data2

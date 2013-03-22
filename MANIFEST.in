@@ -1,2 +1,5 @@
+include *.txt
+include *.rst
+recursive-include docs *
 recursive-include redturtle *
 global-exclude *pyc

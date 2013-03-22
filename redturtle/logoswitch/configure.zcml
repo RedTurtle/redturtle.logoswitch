@@ -13,19 +13,21 @@
   <!-- Include the sub-packages that use their own configure.zcml files. -->
   <include file="permissions.zcml" />
   <include package=".browser" />
-  <include package=".viewlets" />
-
-  <include file="skins.zcml" />
   
   <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
       name="default"
-      title="RedTurtle Logo Switch"
+      title="RedTurtle: Logo Switch"
       directory="profiles/default"
       description="A product that allows some users to chose the logo from a given list"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   
-  <!-- -*- extra stuff goes here -*- -->
+  <genericsetup:importStep
+      name="redturtle.logoswitch"
+      title="RedTurtle: Logo Switch"
+      description="Configures redturtle logoswitch"
+      handler="redturtle.logoswitch.exportimport.import_various"
+      />
 
 </configure>

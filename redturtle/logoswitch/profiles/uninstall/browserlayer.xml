@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+   i18n:domain="redturtle.logoswitch">
+   <layer name="RedTurtleLogoSwitch"
+          interface="redturtle.logoswitch.browser.interfaces.ILogoSwitchLayer"
+          remove="True"/>
+</layers>

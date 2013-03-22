@@ -5,61 +5,40 @@ This module contains the tool of redturtle.logoswitch
 import os
 from setuptools import setup, find_packages
 
-def read(*rnames):
-    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+version = '1.1.0'
 
-version = '1.0.2'
-
-long_description = (
-    read('README.txt')
-    + '\n' +
-    'Change history\n'
-    '**************\n'
-    + '\n' +
-    read('CHANGES.txt')
-    + '\n' +
-    'Detailed Documentation\n'
-    '**********************\n'
-    + '\n' +
-    read('redturtle', 'logoswitch', 'README.txt')
-    + '\n' +
-    'Contributors\n'
-    '************\n'
-    + '\n' +
-    read('CONTRIBUTORS.txt')
-    + '\n' +
-    'Download\n'
-    '********\n'
-    )
-
-tests_require=['zope.testing']
+tests_require = ['plone.app.testing']
 
 setup(name='redturtle.logoswitch',
       version=version,
-      description="A product that allows some users to chose the logo from a given list",
-      long_description=long_description,
+      description="A product that allows users to change portal logo from a given list",
+      long_description=open("README.rst").read() + "\n" +
+                       open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
-        'Framework :: Plone',
+        "Framework :: Plone",
+        "Framework :: Plone :: 3.3",
+        "Framework :: Plone :: 4.0",
+        "Framework :: Plone :: 4.1",
+        "Framework :: Plone :: 4.2",
+        "Programming Language :: Python",
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         ],
       keywords='',
       author='RedTurtle Technology',
-      author_email='info@redturtle.net',
-      url='http://svn.plone.org/svn/plone/plone.example',
+      author_email='sviluppoplone@redturtle.it',
+      url='http://svn.plone.org/svn/plone/products/redturtle.logoswitch',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['redturtle', ],
       include_package_data=True,
       zip_safe=False,
       install_requires=['setuptools',
-                        # -*- Extra requirements: -*-
                         ],
       tests_require=tests_require,
-      extras_require=dict(tests=tests_require),
-      test_suite = 'redturtle.logoswitch.tests.test_docs.test_suite',
+      extras_require=dict(test=tests_require),
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
