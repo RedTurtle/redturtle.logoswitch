@@ -22,7 +22,7 @@ Logo id is stored in a property in "site_properties" called *logo_name*.
 
 To choose the logo, there is a view "*@@select-logo*" that show all images in that folder.
 
-.. image:: https://admin.blog.redturtle.it/pypi-images/redturtle.logoswitch/logoswitch.png/image_preview
+.. image:: http://blog.redturtle.it/pypi-images/redturtle.logoswitch/logoswitch.png/image_preview
 
 
 Compatibility
