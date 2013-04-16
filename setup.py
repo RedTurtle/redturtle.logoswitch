@@ -5,13 +5,13 @@ This module contains the tool of redturtle.logoswitch
 import os
 from setuptools import setup, find_packages
 
-version = '1.1.0'
+version = '1.1.0dev0'
 
 tests_require = ['plone.app.testing']
 
 setup(name='redturtle.logoswitch',
       version=version,
-      description="A product that allows users to change portal logo from a given list",
+      description="Allows users to change plone portal logo from a given images list",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
