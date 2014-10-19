@@ -67,14 +67,14 @@ class TestChangeLogo(BaseTestCase):
         images_radio.value = ['rt_logo']
         self.browser.getControl(name='form.button.Submit').click()
         self.assertTrue(u"Logo updated" in self.browser.contents)
-        self.assertTrue('<img src="http://nohost/plone/rt_logo" alt="" title="Plone site" />' in self.browser.contents)
+        self.assertTrue('<img src="http://nohost/plone/rt_logo" alt="" title="Plone site"' in self.browser.contents)
         #try to set ploneit_logo as logo
         images_radio = self.browser.getControl(name='image_selected')
         self.assertEquals(images_radio.options, ['rt_logo', 'ploneit_logo'])
         images_radio.value = ['ploneit_logo']
         self.browser.getControl(name='form.button.Submit').click()
         self.assertTrue(u"Logo updated" in self.browser.contents)
-        self.assertTrue('<img src="http://nohost/plone/ploneit_logo" alt="" title="Plone site" />' in self.browser.contents)
+        self.assertTrue('<img src="http://nohost/plone/ploneit_logo" alt="" title="Plone site"' in self.browser.contents)
 
     def tearDown(self):
         """
